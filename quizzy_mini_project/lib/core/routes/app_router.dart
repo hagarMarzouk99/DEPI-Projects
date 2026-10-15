@@ -11,7 +11,7 @@ class AppRouter {
       case AppRoutes.onboarding:
         return _page(const _PlaceholderScreen('Onboarding'));
       case AppRoutes.login:
-        return _page(const _PlaceholderScreen('Login'));
+  return _page(const _PlaceholderScreen('Login'));
       case AppRoutes.register:
         return _page(const _PlaceholderScreen('Register'));
       case AppRoutes.home:
