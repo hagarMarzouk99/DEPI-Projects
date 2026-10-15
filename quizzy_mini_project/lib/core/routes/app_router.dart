@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:quizzy_mini_project/features/auth/login_screen.dart';
+import 'package:quizzy_mini_project/features/auth/register_screen.dart';
 import 'app_routes.dart';
 
 class AppRouter {
@@ -11,9 +13,9 @@ class AppRouter {
       case AppRoutes.onboarding:
         return _page(const _PlaceholderScreen('Onboarding'));
       case AppRoutes.login:
-  return _page(const _PlaceholderScreen('Login'));
+        return _page(const LoginScreen());
       case AppRoutes.register:
-        return _page(const _PlaceholderScreen('Register'));
+  return _page(const RegisterScreen());
       case AppRoutes.home:
         return _page(const _PlaceholderScreen('Home'));
       default:
