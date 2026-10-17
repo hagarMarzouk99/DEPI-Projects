@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quizzy_mini_project/features/auth/login_screen.dart';
 import 'package:quizzy_mini_project/features/auth/register_screen.dart';
+import 'package:quizzy_mini_project/feature/categories/screens/categories_screen.dart';  
 import 'app_routes.dart';
 
 class AppRouter {
@@ -15,9 +16,19 @@ class AppRouter {
       case AppRoutes.login:
         return _page(const LoginScreen());
       case AppRoutes.register:
-  return _page(const RegisterScreen());
+        return _page(const RegisterScreen());
       case AppRoutes.home:
         return _page(const _PlaceholderScreen('Home'));
+
+     
+      case AppRoutes.categories:
+        return _page(const CategoriesScreen());
+
+     
+      case AppRoutes.quizDetails:
+        final categoryId = settings.arguments as String;
+        return _page(_PlaceholderScreen('Quiz Details: $categoryId'));
+
       default:
         return _page(const _PlaceholderScreen('Route not found'));
     }
