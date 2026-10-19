@@ -31,10 +31,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const QuizScreen(
-      categoryId: 'science',
-      categoryTitle: 'Science & Nature',
-      ),
+     home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
