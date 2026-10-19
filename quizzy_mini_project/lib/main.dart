@@ -1,3 +1,4 @@
+
 import 'package:flutter/material.dart';
 import 'core/constants/app_colors.dart';
 import 'core/routes/app_router.dart';
@@ -17,7 +18,9 @@ class QuizzyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         scaffoldBackgroundColor: AppColors.lightBackground,
-        colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: AppColors.primary,
+        ),
       ),
       initialRoute: AppRoutes.login,
       onGenerateRoute: AppRouter.onGenerateRoute,
