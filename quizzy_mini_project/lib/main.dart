@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quizzy_mini_project/screens/quiz/presentation/quiz_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -30,7 +31,10 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: .fromSeed(seedColor: Colors.deepPurple),
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const QuizScreen(
+      categoryId: 'science',
+      categoryTitle: 'Science & Nature',
+      ),
     );
   }
 }
