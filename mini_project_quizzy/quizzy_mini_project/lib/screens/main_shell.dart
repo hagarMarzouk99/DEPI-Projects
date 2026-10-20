@@ -15,7 +15,6 @@ class MainShell extends StatelessWidget {
     child: BlocBuilder<NavCubit, int>(builder: (context, index) => Scaffold(
       body: IndexedStack(index: index, children: _pages),
       bottomNavigationBar: NavigationBar(
-        backgroundColor: Colors.white, indicatorColor: AppColors.easyBg,
         selectedIndex: index, onDestinationSelected: context.read<NavCubit>().select,
         destinations: const [
           NavigationDestination(icon: Icon(Icons.home_outlined), selectedIcon: Icon(Icons.home), label: 'Home'),

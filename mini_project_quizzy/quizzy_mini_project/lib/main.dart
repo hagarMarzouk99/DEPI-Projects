@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import 'core/constants/app_colors.dart';
+import 'core/constants/app_theme.dart';
 import 'core/routes/app_router.dart';
 import 'core/routes/app_routes.dart';
 import 'core/services/local_storage.dart';
@@ -23,7 +23,6 @@ class QuizzyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return MultiRepositoryProvider(
       providers: [
         RepositoryProvider<LocalStorage>.value(value: storage),
@@ -39,15 +38,17 @@ class QuizzyApp extends StatelessWidget {
           BlocProvider<SettingsCubit>(create: (_) => SettingsCubit(storage)),
           BlocProvider<ProgressCubit>(create: (_) => ProgressCubit(storage)),
         ],
-        child: MaterialApp(
-          title: 'Quizzy',
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            scaffoldBackgroundColor: AppColors.lightBackground,
-            colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary),
+        child: BlocBuilder<SettingsCubit, SettingsState>(
+          buildWhen: (a, b) => a.isDark != b.isDark,
+          builder: (context, settings) => MaterialApp(
+            title: 'Quizzy',
+            debugShowCheckedModeBanner: false,
+            themeMode: settings.isDark ? ThemeMode.dark : ThemeMode.light,
+            theme: AppTheme.light,
+            darkTheme: AppTheme.dark,
+            initialRoute: AppRoutes.splash,
+            onGenerateRoute: AppRouter.onGenerateRoute,
           ),
-          initialRoute: AppRoutes.splash,
-          onGenerateRoute: AppRouter.onGenerateRoute,
         ),
       ),
     );

@@ -22,7 +22,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   ProgressState get stats => context.read<ProgressCubit>().state;
   UserModel? get user => context.read<AuthCubit>().state.user;
 
-  Color get cardColor => isDark ? Colors.grey.shade800 : Colors.grey.shade100;
+  Color get cardColor => Theme.of(context).colorScheme.surfaceContainerHighest;
   Color get mainColor => isDark ? Colors.white : const Color(0xFF1E1B4B);
   Color get subColor => isDark ? Colors.white70 : Colors.black54;
 
@@ -304,9 +304,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
     context.watch<ProgressCubit>();
     context.watch<AuthCubit>();
 
-    return Theme(
-      data: isDark ? ThemeData.dark() : Theme.of(context),
-      child: Builder(builder: buildPage),
-    );
+    return buildPage(context);
   }
 }
